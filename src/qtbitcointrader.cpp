@@ -2670,7 +2670,7 @@ void QtBitcoinTrader::on_calcButton_clicked()
 
 void QtBitcoinTrader::checkValidSellButtons()
 {
-    ui.widgetSellThenBuy->setEnabled();
+    ui.widgetSellThenBuy->setEnabled(true);
     ui.sellBitcoinsButton->setEnabled(ui.widgetSellThenBuy->isEnabled() &&
                                       /*ui.sellTotalBtc->value()<=getAvailableBTC()&&*/ui.sellTotalBtc->value() > 0.0);
 }
@@ -2900,7 +2900,7 @@ void QtBitcoinTrader::on_buyPricePerCoin_valueChanged(double)
 
 void QtBitcoinTrader::checkValidBuyButtons()
 {
-    ui.widgetBuyThenSell->setEnabled();
+    ui.widgetBuyThenSell->setEnabled(true);
     ui.buyBitcoinsButton->setEnabled(ui.widgetBuyThenSell->isEnabled() &&
                                      /*ui.buyTotalSpend->value()<=getAvailableUSD()&&*/ui.buyTotalSpend->value() > 0.0);
 }

@@ -1908,9 +1908,6 @@ void QtBitcoinTrader::fixDecimals(QWidget* par)
                 spinBox->setDecimals(baseValues.currentPair.currABalanceDecimals);
             else
                 spinBox->setDecimals(baseValues.currentPair.currADecimals);
-
-            if (spinBox->accessibleDescription() != "CAN_BE_ZERO")
-                spinBox->setMinimum(baseValues.currentPair.tradeVolumeMin);
         }
         else if (spinBox->accessibleName().startsWith("USD"))
         {
@@ -2673,7 +2670,7 @@ void QtBitcoinTrader::on_calcButton_clicked()
 
 void QtBitcoinTrader::checkValidSellButtons()
 {
-    ui.widgetSellThenBuy->setEnabled(ui.sellTotalBtc->value() >= baseValues.currentPair.tradeVolumeMin);
+    ui.widgetSellThenBuy->setEnabled();
     ui.sellBitcoinsButton->setEnabled(ui.widgetSellThenBuy->isEnabled() &&
                                       /*ui.sellTotalBtc->value()<=getAvailableBTC()&&*/ui.sellTotalBtc->value() > 0.0);
 }
@@ -2903,7 +2900,7 @@ void QtBitcoinTrader::on_buyPricePerCoin_valueChanged(double)
 
 void QtBitcoinTrader::checkValidBuyButtons()
 {
-    ui.widgetBuyThenSell->setEnabled(ui.buyTotalBtc->value() >= baseValues.currentPair.tradeVolumeMin);
+    ui.widgetBuyThenSell->setEnabled();
     ui.buyBitcoinsButton->setEnabled(ui.widgetBuyThenSell->isEnabled() &&
                                      /*ui.buyTotalSpend->value()<=getAvailableUSD()&&*/ui.buyTotalSpend->value() > 0.0);
 }

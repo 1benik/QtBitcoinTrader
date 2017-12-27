@@ -57,9 +57,6 @@ FeeCalculator::FeeCalculator()
     ui.buyPrice->setValue(buyPrice);
     double btcVal = mainWindow.getAvailableUSD() / buyPrice;
 
-    if (btcVal < baseValues.currentPair.tradeVolumeMin)
-        btcVal = baseValues.currentPair.tradeVolumeMin;
-
     buy = btcVal;
     ui.buyTotalBtc->setValue(buy);
 

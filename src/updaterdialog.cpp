@@ -1,6 +1,6 @@
 //  This file is part of Qt Bitcoin Trader
 //      https://github.com/JulyIGHOR/QtBitcoinTrader
-//  Copyright (C) 2013-2017 July IGHOR <julyighor@gmail.com>
+//  Copyright (C) 2013-2018 July IGHOR <julyighor@gmail.com>
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -140,9 +140,9 @@ UpdaterDialog::UpdaterDialog(bool fbMess)
         reqStr.append("false");
 
     if (forceUpdate)
-        reqStr.append("&Version=" + byteArrayFromDouble(baseValues.appVerReal * 100000 - 100, 0));
+        reqStr.append("&Version=" + JulyMath::byteArrayFromDouble(baseValues.appVerReal * 100000 - 100, 0));
     else
-        reqStr.append("&Version=" + byteArrayFromDouble(baseValues.appVerReal * 100000, 0));
+        reqStr.append("&Version=" + JulyMath::byteArrayFromDouble(baseValues.appVerReal * 100000, 0));
 
     reqStr.append("&OS=" + osString);
     reqStr.append("&Locale=" + QLocale().name());
@@ -526,7 +526,7 @@ void UpdaterDialog::downloadErrorFile(int val)
 
 void UpdaterDialog::dataProgress(int precent)
 {
-    if (httpGetFile->getCurrentPacketContentLength() > 20000000)
+    if (httpGetFile->getCurrentPacketContentLength() > 300000000)
         downloadErrorFile(10);
 
     ui.progressBar->setValue(precent);

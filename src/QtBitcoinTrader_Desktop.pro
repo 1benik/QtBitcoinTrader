@@ -1,6 +1,9 @@
-lessThan(QT_VERSION, 5.5): {
-error("Qt less than 5.5 is no longer supported. In order to compile Qt Bitcoin Trader you need update at least to Qt 5.6 http://qt.io/download-open-source/");
+lessThan(QT_MAJOR_VERSION, 5) {
+error("Qt 4 is no longer supported. In order to compile Qt Bitcoin Trader you need update to Qt5 http://qt.io/download-open-source/");
 }
+
+lessThan(QT_MAJOR_VERSION, 6) { lessThan(QT_MINOR_VERSION, 6) {
+error("Qt $${QT_VERSION} is no longer supported. In order to compile Qt Bitcoin Trader you need update at least to Qt 5.6 http://qt.io/download-open-source/"); } }
 
 CONFIG	+= qt release c++11
 
@@ -13,11 +16,12 @@ QT += network script widgets
 linux { QT += multimedia }
 mac { QT += multimedia }
 
-LIBS += -lcrypto -lssl -lz # -lws2_32 -lole32 -lwinmm -lgdi32 -lcrypt32
+LIBS += -lssl -lcrypto -lz
 
 win32 {
     contains(QMAKE_TARGET.arch, x86_64) {
         TARGET = QtBitcoinTrader_64bit
+        DEFINES += QTBUILDTARGETWIN64
     } else {
         TARGET = QtBitcoinTrader_32bit
     }
@@ -33,9 +37,6 @@ win32 {
 
     checkFRAMEWORKDIR=$$(FRAMEWORKDIR)
     isEmpty(checkFRAMEWORKDIR) {
-        QMAKE_CFLAGS_WARN_ON += -Wno-deprecated-declarations -Wno-unused-function
-        QMAKE_CXXFLAGS_WARN_ON += -Wno-deprecated-declarations -Wno-unused-function
-
         LIBS += -lsapi
     }
 }
@@ -45,9 +46,6 @@ TARGET = QtBitcoinTrader
 }
 
 mac {
-    QMAKE_CFLAGS_WARN_ON += -Wno-deprecated-declarations -Wno-unused-function
-    QMAKE_CXXFLAGS_WARN_ON += -Wno-deprecated-declarations -Wno-unused-function
-
     LIBS += -dead_strip
     LIBS += -framework CoreFoundation
     LIBS += -framework ApplicationServices

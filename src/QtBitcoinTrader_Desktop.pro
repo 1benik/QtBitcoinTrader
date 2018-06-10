@@ -12,11 +12,14 @@ LANGUAGE	= C++
 DEPENDPATH	+= .
 INCLUDEPATH	+= .
 
+INCLUDEPATH += "C:\OpenSSL-Win32\include"
+LIBS        += -L"C:\OpenSSL-Win32\lib\MinGW"
+
 QT += network script widgets
 linux { QT += multimedia }
 mac { QT += multimedia }
 
-LIBS += -lssl -lcrypto -lz
+LIBS += -lz -lssl-1_1 -lcrypto-1_1
 
 linux {
     contains(QMAKE_TARGET.arch, x86_64) {

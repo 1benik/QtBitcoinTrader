@@ -225,7 +225,7 @@ void Exchange_WEX::dataReceivedAuth(QByteArray data, int reqType)
                 {
                     QByteArray tradeData = tradeList.at(n).toLatin1() + "}";
                     TradesItem newItem;
-                    newItem.date = getMidData("timestamp\":", "}", &tradeData).toUInt();
+                    newItem.date = getMidData("timestamp\":", "}", &tradeData).toLongLong();
                     newItem.price = getMidData("\"price\":", ",\"", &tradeData).toDouble();
 
                     if (lastFetchTid < 0 && newItem.date < -lastFetchTid)
@@ -881,7 +881,7 @@ void Exchange_WEX::sendToApi(int reqType, QByteArray method, bool auth, bool sen
 {
     if (julyHttp == 0)
     {
-        julyHttp = new JulyHttp("wex.nz", "Key: " + getApiKey() + "\r\n", this);
+        julyHttp = new JulyHttp("wex.link", "Key: " + getApiKey() + "\r\n", this);
         connect(julyHttp, SIGNAL(anyDataReceived()), baseValues_->mainWindow_, SLOT(anyDataReceived()));
         connect(julyHttp, SIGNAL(apiDown(bool)), baseValues_->mainWindow_, SLOT(setApiDown(bool)));
         connect(julyHttp, SIGNAL(setDataPending(bool)), baseValues_->mainWindow_, SLOT(setDataPending(bool)));

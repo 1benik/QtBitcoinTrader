@@ -37,6 +37,7 @@ Exchange_OKCoin::Exchange_OKCoin(QByteArray pRestSign, QByteArray pRestKey)
 {
     lastFee = 0;
     calculatingFeeMode = 1;
+    clearOpenOrdersOnCurrencyChanged = true;
     clearHistoryOnCurrencyChanged = true;
     baseValues.exchangeName = "OKCoin";
     baseValues.currentPair.name = "BTC/CNY";
@@ -232,7 +233,7 @@ void Exchange_OKCoin::dataReceivedAuth(QByteArray data, int reqType)
                     for (int n = 0; n < tradeList.count(); n++)
                     {
                         QByteArray tradeData = tradeList.at(n).toLatin1();
-                        newItem.date = getMidData("\"date\":", ",", &tradeData).toUInt();
+                        newItem.date = getMidData("\"date\":", ",", &tradeData).toLongLong();
 
                         if (newItem.date < startTradesDate)
                             continue;

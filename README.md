@@ -12,23 +12,21 @@ Next ToDo:
 
 ## Official website
 
-* https://centrabit.com/index.php?m0prm=6
+* https://centrabit.com/downloads/
+* https://qttrader.com
 
 ## Download binaries
 
-* https://sourceforge.net/projects/bitcointrader/  `Win32`,`Mac`
+* https://sourceforge.net/projects/bitcointrader/  `Win32`,`Mac`,`Linux`
 * http://www.softpedia.com/get/Others/Finances-Business/Bitcoin-Trader.shtml `Win32`
 * http://mac.softpedia.com/get/Finance/Qt-Bitcoin-Trader.shtml `Mac`
-* http://packages.gentoo.org/package/app-office/QtBitcoinTrader `Gentoo`
-* http://packages.altlinux.org/en/Sisyphus/srpms/QtBitcoinTrader `Alt Linux`
 
 ## Compilation on Linux
-```
-sudo apt-get install g++ libssl-dev libglu1-mesa-dev qt5-qmake qtscript5-dev qtmultimedia5-dev
-export QT_SELECT=5
-qmake QtBitcoinTrader_Desktop.pro
-make && make install && make clean
-```
+* `sudo apt-get install g++ libssl-dev libglu1-mesa-dev qt5-qmake qtscript5-dev qtmultimedia5-dev git`
+* `git clone https://github.com/JulyIGHOR/QtBitcoinTrader.git`
+* `cd ./QtBitcoinTrader/src`
+* `QT_SELECT=5 qmake QtBitcoinTrader_Desktop.pro`
+* `make && make install && make clean`
 
 ## Demos
 
@@ -47,6 +45,38 @@ make && make install && make clean
 * http://vk.com/QtBitcoinTrader `RUS`
 
 ## Change Log
+
+v1.40.30
+- Added new exchange HitBTC
+- Added more decimals for Fee Calculator
+- Fixed canceling order via rule or script for Binance
+- Fixed bug in charts
+- Fixed wex mirror
+- Minor cleanup and optimizations
+
+v1.40.23
+- Added new exchange Bittrex
+- Portable mode for Linux and macOS
+- Secure auto update for Linux x86_64
+- Uninstall option in help menu
+- Fixed Binance own trade history order
+- Time Sync bug fixed
+- HDPI bug fixed
+- Minor fixes
+
+v1.40.22
+- Added new exchange Binance
+- Many small fixes
+- Subscribe to beta of Qt Trader exchange www.QtTrader.com
+
+v1.40.21
+- Qt Trader 2.0 Announced! Visit www.QtTrader.com
+- Fixed bug of Rules dialog
+- Fixed HiDPI mode
+- Fixed Script and Rules enable-disable command
+- Fixed Last Buy and Sell price event bug
+- Memory optimisations, refractoring
+- Minor fixes
 
 v1.40.12
 - Dropped support of Windows XP and macOS 10.9, but you still can compile it manually

@@ -1,5 +1,5 @@
 Label_BUY_ORDERS=Órdenes de Compra
-Label_CLIENT_ID=ID del Cliente:
+Label_CLIENT_ID=Main user ID:
 Label_DISABLE_ALL_RULES=Desactivar todas las Reglas activas cuando se ejecute esta Regla.
 Label_DISABLE_ALL_RULES_GROUP=Deshabilitar todas las reglas en determinado grupo # habilitadas en el momento de ejecutarse la regla
 Label_DONATE_THANK_YOU=Su apoyo es muy importante. ¡Gracias!
@@ -396,7 +396,7 @@ GroupBox_GENERATE_RULE=Generate rule
 Label_TYPE=Type:
 Label_ACTION=Action:
 Label_NAME=Name:
-String_RULE_TYPE_REALTIME=Realtime comparation
+String_RULE_TYPE_REALTIME=Realtime comparison
 String_RULE_TYPE_SAVEONSTART=Fixed. Save base value once at rule starts
 String_RULE_TYPE_FIXED=Trailing. Save base value on opposide direction
 String_RULE_NOFEE=No Fee
